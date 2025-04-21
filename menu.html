@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Restaurant Menu</title>
+    <link href="output.css" rel="stylesheet" />
+    <link href="menu.css" rel="stylesheet" />
+</head>
+
+<body class="pb-10"
+    style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+    <div class="menu-container">
+        <h1 class="text-xl">Our Menu</h1>
+        <div class="type">
+            <a href="#main-course" class="font-medium">Main Course</a>
+            <a href="#desserts" class="font-medium">Desserts</a>
+            <a href="#drinks" class="font-medium">Drinks</a>
+            <a href="#salads" class="font-medium">Salads</a>
+            <a href="../src/order.html"><button class="order-btn" id="order-btn">Order</button></a>
+
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Main Course Section -->
+        <div id="main-course" class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Main Course</h2>
+            <div class="space-y-4">
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Grilled Salmon</p>
+                        <p class="text-gray-600">Fresh salmon with lemon butter sauce</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$18.99</span>
+                    </div>
+                </div>
+                <!-- Add 9 more main course items similarly -->
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Chicken Tikka Masala</p>
+                        <p class="text-gray-600">Tender chicken in creamy tomato sauce</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$15.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Beef Steak</p>
+                        <p class="text-gray-600">Juicy ribeye with mashed potatoes</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$22.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Vegetable Lasagna</p>
+                        <p class="text-gray-600">Layered pasta with vegetables and cheese</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$14.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Butter Chicken</p>
+                        <p class="text-gray-600">Creamy Indian chicken curry</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$16.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Fish and Chips</p>
+                        <p class="text-gray-600">Beer battered fish with fries</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$17.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Mushroom Risotto</p>
+                        <p class="text-gray-600">Creamy arborio rice with mushrooms</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$15.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">BBQ Ribs</p>
+                        <p class="text-gray-600">Slow cooked pork ribs with sauce</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$19.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Pad Thai</p>
+                        <p class="text-gray-600">Stir fried rice noodles with vegetables</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$14.99</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Chicken Parmesan</p>
+                        <p class="text-gray-600">Breaded chicken with tomato sauce</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$16.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts Section -->
+        <div id="desserts" class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Desserts</h2>
+            <div class="space-y-4">
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Chocolate Cake</p>
+                        <p class="text-gray-600">Rich chocolate layered cake</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.50</span>
+                    </div>
+                </div>
+                <!-- Add 9 more dessert items similarly -->
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Cheesecake</p>
+                        <p class="text-gray-600">New York style with berry topping</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$8.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Tiramisu</p>
+                        <p class="text-gray-600">Classic Italian coffee dessert</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$8.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Tarte Tatin</p>
+                        <p class="text-gray-600">Caramelized apple tart</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Crème Brûlée</p>
+                        <p class="text-gray-600">Rich custard with caramelized sugar</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Pavlova</p>
+                        <p class="text-gray-600">Meringue dessert with fresh fruit</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Apple Pie</p>
+                        <p class="text-gray-600">Classic apple pie with cinnamon</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$6.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Brownie</p>
+                        <p class="text-gray-600">Chocolate fudge brownie</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$6.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Panna Cotta</p>
+                        <p class="text-gray-600">Creamy Italian dessert with berries</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Fruit Tart</p>
+                        <p class="text-gray-600">Seasonal fruit tart with custard</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$7.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salads Section -->
+        <div id="salads" class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Salads</h2>
+            <div class="space-y-4">
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Caesar Salad</p>
+                        <p class="text-gray-600">Romaine, croutons, parmesan, dressing</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$9.50</span>
+                    </div>
+                </div>
+                <!-- Add 9 more salad items similarly -->
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Greek Salad</p>
+                        <p class="text-gray-600">Tomatoes, cucumber, olives, feta</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$10.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Caprese Salad</p>
+                        <p class="text-gray-600">Tomatoes, mozzarella, basil</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$11.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Waldorf Salad</p>
+                        <p class="text-gray-600">Apples, walnuts, celery, grapes</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$9.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Cobb Salad</p>
+                        <p class="text-gray-600">Lettuce, chicken, bacon, eggs, avocado</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$12.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Spinach Salad</p>
+                        <p class="text-gray-600">Baby spinach, strawberries, almonds</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$10.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Quinoa Salad</p>
+                        <p class="text-gray-600">Quinoa, vegetables, lemon dressing</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$11.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Taco Salad</p>
+                        <p class="text-gray-600">Lettuce, beef, cheese, salsa, chips</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$12.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Asian Chicken Salad</p>
+                        <p class="text-gray-600">Chicken, cabbage, carrots, sesame</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$11.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Fruit Salad</p>
+                        <p class="text-gray-600">Seasonal fresh fruits with honey</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$8.50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drinks Section -->
+        <div id="drinks" class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Drinks</h2>
+            <div class="space-y-4">
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Iced Tea</p>
+                        <p class="text-gray-600">Fresh brewed iced tea</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$3.50</span>
+                    </div>
+                </div>
+                <!-- Add 9 more drink items similarly -->
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Lemonade</p>
+                        <p class="text-gray-600">Fresh squeezed lemonade</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$4.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Soda</p>
+                        <p class="text-gray-600">Various flavors available</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$2.75</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Mineral Water</p>
+                        <p class="text-gray-600">Sparkling or still</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$3.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Fresh Juice</p>
+                        <p class="text-gray-600">Orange, apple, or mixed</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$5.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Iced Coffee</p>
+                        <p class="text-gray-600">Cold brew with milk</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$4.50</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Smoothie</p>
+                        <p class="text-gray-600">Mixed berry or tropical</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$6.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Milkshake</p>
+                        <p class="text-gray-600">Vanilla, chocolate, or strawberry</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$6.00</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Hot Tea</p>
+                        <p class="text-gray-600">Assorted tea selection</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$3.25</span>
+                    </div>
+                </div>
+                <div class="item flex justify-between items-center py-3 border-b border-gray-200">
+                    <div>
+                        <p class="text-lg font-medium">Hot Chocolate</p>
+                        <p class="text-gray-600">Rich chocolate with whipped cream</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-700 font-medium">$4.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const plusButtons = document.querySelectorAll('.quantity-btn.plus');
+    const minusButtons = document.querySelectorAll('.quantity-btn.minus');
+
+    plusButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            quantitySpan.textContent = currentQuantity + 1;
+        });
+    });
+
+    minusButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const quantitySpan = button.parentElement.querySelector('.quantity');
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            if (currentQuantity > 0) {
+                quantitySpan.textContent = currentQuantity - 1;
+            }
+        });
+    });
+
+    // Add order button click handler
+    const orderBtn = document.getElementById('order-btn');
+    orderBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedItems = [];
+        const items = document.querySelectorAll('.item');
+        items.forEach(item => {
+            const nameElem = item.querySelector('p.text-lg.font-medium');
+            const quantitySpan = item.querySelector('.quantity');
+            if (nameElem && quantitySpan) {
+                const quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 0) {
+                    selectedItems.push({
+                        name: nameElem.textContent.trim(),
+                        quantity: quantity
+                    });
+                }
+            }
+        });
+        sessionStorage.setItem('selectedOrderItems', JSON.stringify(selectedItems));
+        window.location.href = '../src/order.html';
+    });
+});
+</script>
+</body>
+</html>

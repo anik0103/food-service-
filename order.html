@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Place Your Order</title>
+    <link href="output.css" rel="stylesheet" />
+    <link href="menu.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col items-center py-10 order-bg">
+    <h1 class="text-3xl font-bold mb-8">Place Your Order</h1>
+    <form id="order-form" class="bg-white p-6 rounded-lg shadow-md w-full max-w-md space-y-6">
+        <div>
+            <label for="customer-name" class="block text-lg font-medium mb-2">Name</label>
+            <input type="text" id="customer-name" name="customerName" required
+                class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-400" />
+        </div>
+        <div>
+            <label for="customer-email" class="block text-lg font-medium mb-2">Email</label>
+            <input type="email" id="customer-email" name="customerEmail" required
+                class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-400" />
+        </div>
+        <div>
+            <label class="block text-lg font-medium mb-2">Select Items</label>
+            <div id="menu-items" class="space-y-6 max-h-96 overflow-y-auto border border-gray-300 rounded-md p-4 bg-gray-50">
+            <!-- Menu items will be populated here by JavaScript -->
+        </div>
+    </div>
+    <button type="submit"
+        class="w-full bg-red-500 text-white font-semibold py-3 rounded-md hover:bg-red-600 transition-colors">
+        Submit Order
+    </button>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuData = {
+            "Main Course": [
+                { id: 'grilled-salmon', name: 'Grilled Salmon', description: 'Fresh salmon with lemon butter sauce', price: 18.99 },
+                { id: 'chicken-tikka-masala', name: 'Chicken Tikka Masala', description: 'Tender chicken in creamy tomato sauce', price: 15.50 },
+                { id: 'beef-steak', name: 'Beef Steak', description: 'Juicy ribeye with mashed potatoes', price: 22.75 },
+                { id: 'vegetable-lasagna', name: 'Vegetable Lasagna', description: 'Layered pasta with vegetables and cheese', price: 14.25 },
+                { id: 'butter-chicken', name: 'Butter Chicken', description: 'Creamy Indian chicken curry', price: 16.50 },
+                { id: 'fish-and-chips', name: 'Fish and Chips', description: 'Beer battered fish with fries', price: 17.25 },
+                { id: 'mushroom-risotto', name: 'Mushroom Risotto', description: 'Creamy arborio rice with mushrooms', price: 15.75 },
+                { id: 'bbq-ribs', name: 'BBQ Ribs', description: 'Slow cooked pork ribs with sauce', price: 19.50 },
+                { id: 'pad-thai', name: 'Pad Thai', description: 'Stir fried rice noodles with vegetables', price: 14.99 },
+                { id: 'chicken-parmesan', name: 'Chicken Parmesan', description: 'Breaded chicken with tomato sauce', price: 16.75 }
+            ],
+            "Desserts": [
+                { id: 'chocolate-cake', name: 'Chocolate Cake', description: 'Rich chocolate layered cake', price: 7.50 },
+                { id: 'cheesecake', name: 'Cheesecake', description: 'New York style with berry topping', price: 8.25 },
+                { id: 'tiramisu', name: 'Tiramisu', description: 'Classic Italian coffee dessert', price: 8.50 },
+                { id: 'tarte-tatin', name: 'Tarte Tatin', description: 'Caramelized apple tart', price: 7.00 },
+                { id: 'creme-brulee', name: 'Crème Brûlée', description: 'Rich custard with caramelized sugar', price: 7.50 },
+                { id: 'pavlova', name: 'Pavlova', description: 'Meringue dessert with fresh fruit', price: 7.25 },
+                { id: 'apple-pie', name: 'Apple Pie', description: 'Classic apple pie with cinnamon', price: 6.75 },
+                { id: 'brownie', name: 'Brownie', description: 'Chocolate fudge brownie', price: 6.50 },
+                { id: 'panna-cotta', name: 'Panna Cotta', description: 'Creamy Italian dessert with berries', price: 7.75 },
+                { id: 'fruit-tart', name: 'Fruit Tart', description: 'Seasonal fruit tart with custard', price: 7.00 }
+            ],
+            "Salads": [
+                { id: 'caesar-salad', name: 'Caesar Salad', description: 'Romaine, croutons, parmesan, dressing', price: 9.50 },
+                { id: 'greek-salad', name: 'Greek Salad', description: 'Tomatoes, cucumber, olives, feta', price: 10.25 },
+                { id: 'caprese-salad', name: 'Caprese Salad', description: 'Tomatoes, mozzarella, basil', price: 11.00 },
+                { id: 'waldorf-salad', name: 'Waldorf Salad', description: 'Apples, walnuts, celery, grapes', price: 9.75 },
+                { id: 'cobb-salad', name: 'Cobb Salad', description: 'Lettuce, chicken, bacon, eggs, avocado', price: 12.50 },
+                { id: 'spinach-salad', name: 'Spinach Salad', description: 'Baby spinach, strawberries, almonds', price: 10.00 },
+                { id: 'quinoa-salad', name: 'Quinoa Salad', description: 'Quinoa, vegetables, lemon dressing', price: 11.25 },
+                { id: 'taco-salad', name: 'Taco Salad', description: 'Lettuce, beef, cheese, salsa, chips', price: 12.00 },
+                { id: 'asian-chicken-salad', name: 'Asian Chicken Salad', description: 'Chicken, cabbage, carrots, sesame', price: 11.50 },
+                { id: 'fruit-salad', name: 'Fruit Salad', description: 'Seasonal fresh fruits with honey', price: 8.50 }
+            ],
+            "Drinks": [
+                { id: 'iced-tea', name: 'Iced Tea', description: 'Fresh brewed iced tea', price: 3.50 },
+                { id: 'lemonade', name: 'Lemonade', description: 'Fresh squeezed lemonade', price: 4.00 },
+                { id: 'soda', name: 'Soda', description: 'Various flavors available', price: 2.75 },
+                { id: 'mineral-water', name: 'Mineral Water', description: 'Sparkling or still', price: 3.00 },
+                { id: 'fresh-juice', name: 'Fresh Juice', description: 'Orange, apple, or mixed', price: 5.50 },
+                { id: 'iced-coffee', name: 'Iced Coffee', description: 'Cold brew with milk', price: 4.50 },
+                { id: 'smoothie', name: 'Smoothie', description: 'Mixed berry or tropical', price: 6.25 },
+                { id: 'milkshake', name: 'Milkshake', description: 'Vanilla, chocolate, or strawberry', price: 6.00 },
+                { id: 'hot-tea', name: 'Hot Tea', description: 'Assorted tea selection', price: 3.25 },
+                { id: 'hot-chocolate', name: 'Hot Chocolate', description: 'Rich chocolate with whipped cream', price: 4.75 }
+            ]
+        };
+
+        const selectedOrderItems = JSON.parse(sessionStorage.getItem('selectedOrderItems') || '[]');
+        const menuItemsContainer = document.getElementById('menu-items');
+
+        // Create total bill display
+        const totalBillDiv = document.createElement('div');
+        totalBillDiv.className = 'text-right font-bold text-lg mt-4';
+        totalBillDiv.id = 'total-bill';
+        totalBillDiv.textContent = 'Total: $0.00';
+        menuItemsContainer.parentNode.appendChild(totalBillDiv);
+
+        function updateTotal() {
+            let total = 0;
+            Object.values(menuData).forEach(categoryItems => {
+                categoryItems.forEach(item => {
+                    const qtyInput = document.getElementById(`qty-${item.id}`);
+                    const qty = qtyInput ? parseInt(qtyInput.value, 10) || 0 : 0;
+                    total += item.price * qty;
+                });
+            });
+            totalBillDiv.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        Object.entries(menuData).forEach(([category, items]) => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'mb-6';
+
+            const categoryHeader = document.createElement('h2');
+            categoryHeader.className = 'text-2xl font-bold mb-4 text-gray-800';
+            categoryHeader.textContent = category;
+
+            categoryDiv.appendChild(categoryHeader);
+
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'flex justify-between items-center mb-3';
+
+                const label = document.createElement('label');
+                label.className = 'flex flex-col cursor-pointer';
+                label.htmlFor = item.id;
+
+                const topRow = document.createElement('div');
+                topRow.className = 'flex items-center gap-2';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = item.id;
+                checkbox.name = 'menuItems';
+                checkbox.value = item.name;
+
+                // Pre-check if item is in selectedOrderItems
+                const selectedItem = selectedOrderItems.find(i => i.name === item.name);
+                if (selectedItem) {
+                    checkbox.checked = true;
+                }
+
+                checkbox.addEventListener('change', () => {
+                    const qtyInput = document.getElementById(`qty-${item.id}`);
+                    if (checkbox.checked) {
+                        qtyInput.disabled = false;
+                        if (qtyInput.value === '0') qtyInput.value = '1';
+                    } else {
+                        qtyInput.disabled = true;
+                        qtyInput.value = '0';
+                    }
+                    updateTotal();
+                });
+
+                const spanName = document.createElement('span');
+                spanName.textContent = item.name;
+                spanName.className = 'font-semibold';
+
+                topRow.appendChild(checkbox);
+                topRow.appendChild(spanName);
+
+                const description = document.createElement('span');
+                description.textContent = item.description;
+                description.className = 'text-gray-600 text-sm ml-6';
+
+                label.appendChild(topRow);
+                label.appendChild(description);
+
+                const priceSpan = document.createElement('span');
+                priceSpan.textContent = `$${item.price.toFixed(2)}`;
+                priceSpan.className = 'font-semibold mr-4';
+
+                const qtyInput = document.createElement('input');
+                qtyInput.type = 'number';
+                qtyInput.id = `qty-${item.id}`;
+                qtyInput.name = `quantity-${item.id}`;
+                qtyInput.min = '0';
+                qtyInput.value = '0';
+                qtyInput.className = 'w-16 border border-gray-300 rounded-md p-1 text-center';
+                qtyInput.disabled = true;
+
+                if (selectedItem) {
+                    qtyInput.value = selectedItem.quantity;
+                    qtyInput.disabled = false;
+                    checkbox.checked = true;
+                }
+
+                qtyInput.addEventListener('input', () => {
+                    if (qtyInput.value === '0') {
+                        checkbox.checked = false;
+                        qtyInput.disabled = true;
+                    } else {
+                        checkbox.checked = true;
+                        qtyInput.disabled = false;
+                    }
+                    updateTotal();
+                });
+
+                itemDiv.appendChild(label);
+                itemDiv.appendChild(priceSpan);
+                itemDiv.appendChild(qtyInput);
+
+                categoryDiv.appendChild(itemDiv);
+            });
+
+            menuItemsContainer.appendChild(categoryDiv);
+        });
+
+        updateTotal();
+
+        // Clear the stored selected items after loading
+        sessionStorage.removeItem('selectedOrderItems');
+    });
+</script>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuData = [
+            { id: 'grilled-salmon', name: 'Grilled Salmon', price: 18.99 },
+            { id: 'chicken-tikka-masala', name: 'Chicken Tikka Masala', price: 15.50 },
+            { id: 'beef-steak', name: 'Beef Steak', price: 22.75 },
+            { id: 'vegetable-lasagna', name: 'Vegetable Lasagna', price: 14.25 },
+            { id: 'butter-chicken', name: 'Butter Chicken', price: 16.50 },
+            { id: 'fish-and-chips', name: 'Fish and Chips', price: 17.25 },
+            { id: 'mushroom-risotto', name: 'Mushroom Risotto', price: 15.75 },
+            { id: 'bbq-ribs', name: 'BBQ Ribs', price: 19.50 },
+            { id: 'pad-thai', name: 'Pad Thai', price: 14.99 },
+            { id: 'chicken-parmesan', name: 'Chicken Parmesan', price: 16.75 }
+        ];
+
+        const selectedOrderItems = JSON.parse(sessionStorage.getItem('selectedOrderItems') || '[]');
+        const menuItemsContainer = document.getElementById('menu-items');
+
+        // Create total bill display
+        const totalBillDiv = document.createElement('div');
+        totalBillDiv.className = 'text-right font-bold text-lg mt-4';
+        totalBillDiv.id = 'total-bill';
+        totalBillDiv.textContent = 'Total: $0.00';
+        menuItemsContainer.parentNode.appendChild(totalBillDiv);
+
+        function updateTotal() {
+            let total = 0;
+            menuData.forEach(item => {
+                const qtyInput = document.getElementById(`qty-${item.id}`);
+                const qty = qtyInput ? parseInt(qtyInput.value, 10) || 0 : 0;
+                total += item.price * qty;
+            });
+            totalBillDiv.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        menuData.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'flex justify-between items-center';
+
+            const label = document.createElement('label');
+            label.className = 'flex items-center gap-2 cursor-pointer';
+            label.htmlFor = item.id;
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = item.id;
+            checkbox.name = 'menuItems';
+            checkbox.value = item.name;
+
+            // Pre-check if item is in selectedOrderItems
+            const selectedItem = selectedOrderItems.find(i => i.name === item.name);
+            if (selectedItem) {
+                checkbox.checked = true;
+            }
+
+            // When checkbox changes, enable/disable quantity input
+            checkbox.addEventListener('change', () => {
+                const qtyInput = document.getElementById(`qty-${item.id}`);
+                if (checkbox.checked) {
+                    qtyInput.disabled = false;
+                    if (qtyInput.value === '0') qtyInput.value = '1';
+                } else {
+                    qtyInput.disabled = true;
+                    qtyInput.value = '0';
+                }
+                updateTotal();
+            });
+
+            const spanName = document.createElement('span');
+            spanName.textContent = item.name;
+
+            label.appendChild(checkbox);
+            label.appendChild(spanName);
+
+            const priceSpan = document.createElement('span');
+            priceSpan.textContent = `$${item.price.toFixed(2)}`;
+            priceSpan.className = 'font-semibold mr-4';
+
+            const qtyInput = document.createElement('input');
+            qtyInput.type = 'number';
+            qtyInput.id = `qty-${item.id}`;
+            qtyInput.name = `quantity-${item.id}`;
+            qtyInput.min = '0';
+            qtyInput.value = '0';
+            qtyInput.className = 'w-16 border border-gray-300 rounded-md p-1 text-center';
+            qtyInput.disabled = true;
+
+            // Pre-fill quantity if selected
+            if (selectedItem) {
+                qtyInput.value = selectedItem.quantity;
+                qtyInput.disabled = false;
+                checkbox.checked = true;
+            }
+
+            qtyInput.addEventListener('input', () => {
+                if (qtyInput.value === '0') {
+                    checkbox.checked = false;
+                    qtyInput.disabled = true;
+                } else {
+                    checkbox.checked = true;
+                    qtyInput.disabled = false;
+                }
+                updateTotal();
+            });
+
+            itemDiv.appendChild(label);
+            itemDiv.appendChild(priceSpan);
+            itemDiv.appendChild(qtyInput);
+
+            menuItemsContainer.appendChild(itemDiv);
+        });
+
+        updateTotal();
+
+        // Clear the stored selected items after loading
+        sessionStorage.removeItem('selectedOrderItems');
+    });
+</script>
+</body>
+</html>
